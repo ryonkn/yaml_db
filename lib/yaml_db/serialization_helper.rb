@@ -179,7 +179,7 @@ module YamlDb
       def self.each_table_page(table, records_per_page=1000)
         total_count = table_record_count(table)
         pages = (total_count.to_f / records_per_page).ceil - 1
-        id = table_column_names(table).first
+        id = "`#{table_column_names(table).first}`"
         boolean_columns = Utils.boolean_columns(table)
         quoted_table_name = Utils.quote_table(table)
 
